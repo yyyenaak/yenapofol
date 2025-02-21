@@ -260,6 +260,9 @@ header {
 
   &.active ~ .mobile_menu {
     display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+      visibility 0.3s ease-in-out;
   }
 }
 
@@ -377,6 +380,12 @@ main {
         font-weight: 500;
         line-height: 3rem;
         letter-spacing: 3px;
+
+        .highlight-text {
+          color: #2973cc;
+          text-decoration-line: underline;
+          text-decoration-color: rgb(24, 69, 103);
+        }
 
         @media (max-width: 768px) {
           display: none;

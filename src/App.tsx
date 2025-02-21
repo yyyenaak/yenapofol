@@ -3,21 +3,20 @@ import "./assets/css/App.css";
 import "./assets/css/Modal.css";
 import topbtn from "./assets/top.svg";
 import Header from "./components/Header";
+import "./assets/js/main";
 
 const App: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const topButton = document.querySelector(".top") as HTMLElement;
-      if (window.scrollY > 300) {
-        topButton.style.display = "block";
-      } else {
-        topButton.style.display = "none";
+      if (topButton) {
+        topButton.style.display = window.scrollY > 300 ? "block" : "none";
       }
     };
 
@@ -27,11 +26,9 @@ const App: React.FC = () => {
 
   return (
     <div>
-      {/* 헤더 */}
       <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
       <main>
-        {/* 메인 소개 섹션 */}
         <section id="top">
           <div className="main_top">
             <div className="top_twins">
@@ -42,14 +39,9 @@ const App: React.FC = () => {
                   창의적인 아이디어로 기획을 이끌며,
                   <br />그 아이디어를 손끝에서 현실로 구현할 줄 아는
                   개발자입니다. <br />
-                  저에 대해 알고싶다면{" "}
-                  <span
-                    className="highlight-text"
-                    onClick={() => (window.location.href = "#about")}
-                  >
-                    'HeLLo!'
-                  </span>{" "}
-                  버튼을 눌러주세요!
+                  저에 대해 알고싶다면&nbsp;
+                  <span className="highlight-text">'HeLLo!'</span> 버튼을
+                  눌러주세요!
                 </div>
               </div>
             </div>
@@ -73,7 +65,7 @@ const App: React.FC = () => {
         <img className="top_btn" src={topbtn} alt="Top" />
       </a>
 
-      {/* 푸터 */}
+      {/* Footer */}
       <footer>
         <p>&copy; 2025 Yena Jo. All rights reserved.</p>
       </footer>
