@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 
 interface HeaderProps {
@@ -9,9 +9,24 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ menuOpen, toggleMenu }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // 바깥 클릭 시 메뉴 닫기
+  // 화면 크기 변경 감지
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // 바깥 클릭 시 메뉴 닫기 (모바일에서만 적용)
+  useEffect(() => {
+    if (!isMobile) return; // 웹에서는 실행 안되게
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         menuRef.current &&
@@ -32,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ menuOpen, toggleMenu }) => {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [menuOpen, toggleMenu]);
+  }, [menuOpen, toggleMenu, isMobile]);
 
   return (
     <header className="header">
@@ -44,29 +59,45 @@ const Header: React.FC<HeaderProps> = ({ menuOpen, toggleMenu }) => {
         />
       </a>
 
-      {/* 햄버거 버튼 */}
-      <div
-        ref={hamburgerRef}
-        className={`hamburger ${menuOpen ? "active" : ""}`}
-        onClick={toggleMenu}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      {/* 햄버거 버튼 (모바일에서만 표시) */}
+      {isMobile && (
+        <div
+          ref={hamburgerRef}
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
 
-      {/* 모바일 메뉴 */}
+      {/* 네비게이션 (웹에서는 항상 보이도록 변경) */}
       <nav
         ref={menuRef}
-        className={`Header_navigation mobile_menu ${menuOpen ? "open" : ""}`}
+        className={`Header_navigation mobile_menu ${
+          menuOpen || !isMobile ? "open" : ""
+        }`}
       >
-        <a href="#about" className="navi_font" onClick={toggleMenu}>
+        <a
+          href="#about"
+          className="navi_font"
+          onClick={isMobile ? toggleMenu : undefined}
+        >
           About
         </a>
-        <a href="#skills" className="navi_font" onClick={toggleMenu}>
+        <a
+          href="#skills"
+          className="navi_font"
+          onClick={isMobile ? toggleMenu : undefined}
+        >
           Skills
         </a>
-        <a href="#projects" className="navi_font" onClick={toggleMenu}>
+        <a
+          href="#projects"
+          className="navi_font"
+          onClick={isMobile ? toggleMenu : undefined}
+        >
           Projects
         </a>
       </nav>

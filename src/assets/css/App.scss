@@ -256,13 +256,23 @@ header {
 
   @media (max-width: 768px) {
     display: flex;
+
+    &.active ~ .mobile_menu {
+      display: flex;
+      flex-direction: column;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+    }
   }
 
   &.active ~ .mobile_menu {
     display: flex;
-    flex-direction: column;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
-      visibility 0.3s ease-in-out;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out,
+        visibility 0.3s ease-in-out;
+    }
   }
 }
 
