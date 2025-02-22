@@ -3,6 +3,7 @@ import "./assets/css/App.css";
 import "./assets/css/Modal.css";
 import topbtn from "./assets/top.svg";
 import Header from "./components/Header";
+import About from "./components/About";
 import "./assets/js/main";
 
 const App: React.FC = () => {
@@ -59,6 +60,8 @@ const App: React.FC = () => {
 
         <hr style={{ width: "90%", color: "#1F334B" }} />
       </main>
+
+      <About />
 
       {/* Top 버튼 */}
       <a className="top" href="#top" title="top">
