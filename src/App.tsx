@@ -26,10 +26,10 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="body">
       <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
-      <main>
+      <main >
         <section id="top">
           <div className="main_top">
             <div className="top_twins">
@@ -59,10 +59,11 @@ const App: React.FC = () => {
         </section>
 
         <hr style={{ width: "90%", color: "#1F334B" }} />
+        <About />
+    
       </main>
 
-      <About />
-
+     
       {/* Top 버튼 */}
       <a className="top" href="#top" title="top">
         <img className="top_btn" src={topbtn} alt="Top" />
