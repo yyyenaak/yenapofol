@@ -1,19 +1,22 @@
 @charset "UTF-8";
 @font-face {
   font-family: "TheJamsil5Bold";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2") format("woff2");
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
+    format("woff2");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: "TheJamsil4Medium";
-  src: url("https://cdn.jsdelivr.net/gh/fontbee/font@main/LOTTE/TheJamsil2Light.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/fontbee/font@main/LOTTE/TheJamsil2Light.woff2")
+    format("woff2");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "TheJamsil2Light";
-  src: url("https://cdn.jsdelivr.net/gh/fontbee/font@main/LOTTE/TheJamsil2Light.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/fontbee/font@main/LOTTE/TheJamsil2Light.woff2")
+    format("woff2");
   font-weight: 300;
   font-style: normal;
 }
@@ -27,7 +30,7 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   z-index: 1000;
   justify-content: center;
   align-items: center;
@@ -208,7 +211,12 @@
   align-items: center;
   text-align: left;
 }
-.modal-body .modal-detail .detail-img .slider-container .slide-description > span {
+.modal-body
+  .modal-detail
+  .detail-img
+  .slider-container
+  .slide-description
+  > span {
   font-size: 0.9rem;
   font-family: "TheJamsil4Medium";
   padding-bottom: 0.3rem;
@@ -255,16 +263,31 @@
     flex-direction: column;
     align-items: flex-start;
   }
-  .modal-body .modal-detail .detail-img .slider-container .slide-description > span {
+  .modal-body
+    .modal-detail
+    .detail-img
+    .slider-container
+    .slide-description
+    > span {
     font-size: 0.8rem;
     color: #6c757d;
     font-family: "TheJamsil4Medium";
     padding-bottom: 0.5rem;
     letter-spacing: 1px;
   }
-  .modal-body .modal-detail .detail-img .slider-container .slide-description > p,
+  .modal-body
+    .modal-detail
+    .detail-img
+    .slider-container
+    .slide-description
+    > p,
   .modal-body .modal-detail .detail-img .slider-container .slide-description ul,
-  .modal-body .modal-detail .detail-img .slider-container .slide-description li {
+  .modal-body
+    .modal-detail
+    .detail-img
+    .slider-container
+    .slide-description
+    li {
     display: none;
   }
   .modal-body .modal-detail .detail-img .slider-container .prev,
@@ -388,4 +411,4 @@
     font-weight: 300;
     font-family: "TheJamsil2Light";
   }
-}/*# sourceMappingURL=modal.css.map */
+}

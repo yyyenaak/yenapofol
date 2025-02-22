@@ -29,7 +29,7 @@ const App: React.FC = () => {
     <div className="body">
       <Header menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
-      <main >
+      <main>
         <section id="top">
           <div className="main_top">
             <div className="top_twins">
@@ -60,10 +60,8 @@ const App: React.FC = () => {
 
         <hr style={{ width: "90%", color: "#1F334B" }} />
         <About />
-    
       </main>
 
-     
       {/* Top 버튼 */}
       <a className="top" href="#top" title="top">
         <img className="top_btn" src={topbtn} alt="Top" />

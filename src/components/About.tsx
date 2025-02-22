@@ -1,11 +1,42 @@
 import React from "react";
+import people from "../assets/about_svg/people.svg";
+import calender from "../assets/about_svg/calender.svg";
+import location from "../assets/about_svg/location.svg";
+import phone from "../assets/about_svg/phone.svg";
+import github from "../assets/about_svg/github.svg";
+import email from "../assets/about_svg/email.svg";
+import send from "../assets/about_svg/send.svg";
+import profile from "../assets/yyyenaa1.jpg";
+import dia from "../assets/dia.png";
+
+const aboutData = [
+  { icon: people, title: "NAME", text: "조예나 (Yena Jo)" },
+  { icon: calender, title: "DoB", text: "2002.01.18" },
+  { icon: location, title: "LOCATION", text: "서울시 송파구" },
+  { icon: phone, title: "NUMBER", text: "010-7715-0958" },
+  {
+    icon: github,
+    title: "Github",
+    text: <a href="https://github.com/yyyenaak">github.com/yyyenaak</a>,
+  },
+  {
+    icon: email,
+    title: "E-MAIL",
+    text: "dpsk185@naver.com",
+    extra: (
+      <a href="mailto:dpsk185@naver.com">
+        <img className="subimg" src={send} alt="send" />
+      </a>
+    ),
+  },
+];
 
 const About = () => {
   return (
     <section className="component" id="about">
       <div className="mainzone">
         <div className="main_title">
-          <img style={{ paddingRight: "1rem" }} src="img/dia.png" alt="dia" />
+          <img style={{ paddingRight: "1rem" }} src={dia} alt="dia" />
           <h1>About</h1>
         </div>
         <div className="aboutzone">
@@ -19,56 +50,16 @@ const About = () => {
                     width: "20rem",
                     height: "21rem",
                   }}
-                  src="img/yyyenaa1.jpg"
+                  src={profile} // 프로필 사진
                   alt="Yena Jo"
                 />
               </div>
               <div className="about_col">
                 <div className="about_wrap">
-                  {[
-                    {
-                      icon: "people.svg",
-                      title: "NAME",
-                      text: "조예나 (Yena Jo)",
-                    },
-                    { icon: "calender.svg", title: "DoB", text: "2002.01.18" },
-                    {
-                      icon: "location.svg",
-                      title: "LOCATION",
-                      text: "서울시 송파구",
-                    },
-                    {
-                      icon: "phone.svg",
-                      title: "NUMBER",
-                      text: "010-7715-0958",
-                    },
-                    {
-                      icon: "github.svg",
-                      title: "Github",
-                      text: (
-                        <a href="https://github.com/yyyenaak">
-                          github.com/yyyenaak
-                        </a>
-                      ),
-                    },
-                    {
-                      icon: "email.svg",
-                      title: "E-MAIL",
-                      text: "dpsk185@naver.com",
-                      extra: (
-                        <a href="mailto:dpsk185@naver.com">
-                          <img
-                            className="subimg"
-                            src="img/about_svg/send.svg"
-                            alt="send"
-                          />
-                        </a>
-                      ),
-                    },
-                  ].map(({ icon, title, text, extra }, index) => (
+                  {aboutData.map(({ icon, title, text, extra }, index) => (
                     <div className="about_info" key={index}>
                       <div className="info_detail">
-                        <img src={`img/about_svg/${icon}`} alt={title} />
+                        <img src={icon} alt={title} />
                       </div>
                       <div className="info_side">
                         <div className="info_title">
