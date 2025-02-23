@@ -1,58 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import project from "../assets/project.svg";
 
-interface ProjectProps {
+interface ProjectData {
   title: string;
   date: string;
   summary: string;
   details: string[];
   url: string;
   stack: string;
-  modalID: string;
 }
-
-const Project = ({
-  title,
-  date,
-  summary,
-  details,
-  url,
-  stack,
-  modalID,
-}: ProjectProps) => {
-  return (
-    <div className="card">
-      <div className="card-inner">
-        <div className="card-front">
-          <div className="card-title">{title}</div>
-          <div className="title-detail">{date}</div>
-          <div className="project_summary">
-            <div className="title">{summary}</div>
-            <ul className="detail">
-              {details.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-            <div className="url">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {url}
-              </a>
-            </div>
-            <div className="taskbox">{stack}</div>
-            <div className="cardbtnzone">
-              <button className="card-btn">
-                <span className="button_top">자세히</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+//데이터 구성 요소
 
 const Projects = () => {
-  const projectData = [
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(
+    null
+  );
+
+  // 프로젝트 정보보
+  const projectData: ProjectData[] = [
     {
       title: "Yena-Portfolio",
       date: "2025.01-2025.02 (개인 프로젝트)",
@@ -133,11 +99,10 @@ const Projects = () => {
       stack: "React, TSX, JS, SCSS",
     },
   ];
-
+  // 스크롤시 보이는 애니메이션
   useEffect(() => {
     const cards = document.querySelectorAll(".card");
-
-    if (cards.length === 0) return; // 카드가 없으면 실행 X
+    if (cards.length === 0) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -160,6 +125,16 @@ const Projects = () => {
     };
   }, []);
 
+  const openModal = (project: ProjectData) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section className="component" id="projects">
       <div className="mainzone">
@@ -173,10 +148,60 @@ const Projects = () => {
         </div>
         <div className="projectzone">
           {projectData.map((project, index) => (
-            <Project modalID={""} key={index} {...project} />
+            <div className="card" key={index}>
+              <div className="card-inner">
+                <div className="card-front">
+                  <div className="card-title">{project.title}</div>
+                  <div className="title-detail">{project.date}</div>
+                  <div className="project_summary">
+                    <div className="title">{project.summary}</div>
+                    <ul className="detail">
+                      {project.details.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                    <div className="url">
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {project.url}
+                      </a>
+                    </div>
+                    <div className="taskbox">{project.stack}</div>
+                    <div className="cardbtnzone">
+                      <button
+                        className="card-btn"
+                        onClick={() => openModal(project)}
+                      >
+                        <span className="button_top">자세히</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>{selectedProject.title}</h2>
+            <ul>
+              {selectedProject.details.map((detail, index) => (
+                <li key={index}>{detail}</li>
+              ))}
+            </ul>
+            <button className="close-btn" onClick={closeModal}>
+              닫기
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
