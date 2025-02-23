@@ -5,7 +5,7 @@ import topbtn from "./assets/top.svg";
 import Header from "./components/Header";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Projects from "./components/Projects";
+import Projectlist from "./components/Projectlist";
 import "./assets/js/main";
 
 const App: React.FC = () => {
@@ -66,7 +66,7 @@ const App: React.FC = () => {
 
         <Skills />
 
-        <Projects />
+        <Projectlist />
       </main>
 
       {/* Top 버튼 */}
