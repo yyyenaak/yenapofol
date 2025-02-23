@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import skills from "../assets/skill.svg";
 import html5 from "../assets/skill_svg/html5.svg";
 import css3 from "../assets/skill_svg/css3.svg";
@@ -12,9 +12,14 @@ import php from "../assets/skill_svg/php.svg";
 import js from "../assets/skill_svg/js.svg";
 import tsx from "../assets/skill_svg/tsx.svg";
 import python from "../assets/skill_svg/python.svg";
-import "../assets/js/main";
 
 const Skills: React.FC = () => {
+  const [activeSkill, setActiveSkill] = useState<string | null>(null);
+
+  const toggleSkill = (skill: string) => {
+    setActiveSkill((prev) => (prev === skill ? null : skill));
+  };
+
   return (
     <section className="component" id="skills">
       <div className="mainzone">
@@ -25,33 +30,25 @@ const Skills: React.FC = () => {
 
         <div className="skillzone">
           {/** Familiar Skills **/}
-          <div className="skill_back">
+          <div className="skill_back" onClick={() => toggleSkill("Familiar")}>
             <div className="skill_header"></div>
             <div className="sk_title">
               <h2>Familiar</h2>
             </div>
             <hr style={{ width: "100%", color: "#8a8a8a" }} />
             <div className="skill_box">
-              <ul className="sk_detail">
+              <ul
+                className={`sk_detail ${
+                  activeSkill === "Familiar" ? "show" : ""
+                }`}
+              >
                 {[
-                  {
-                    src: html5,
-                    alt: "HTML5",
-                    name: "HTML",
-                  },
+                  { src: html5, alt: "HTML5", name: "HTML" },
                   { src: css3, alt: "CSS3", name: "CSS" },
                   { src: scss, alt: "SCSS", name: "SCSS" },
-                  {
-                    src: react,
-                    alt: "React",
-                    name: "React",
-                  },
+                  { src: react, alt: "React", name: "React" },
                   { src: git, alt: "Git", name: "Git" },
-                  {
-                    src: figma,
-                    alt: "Figma",
-                    name: "Figma",
-                  },
+                  { src: figma, alt: "Figma", name: "Figma" },
                 ].map((skill, index) => (
                   <li key={index}>
                     <div className="logobox">
@@ -65,21 +62,19 @@ const Skills: React.FC = () => {
           </div>
 
           {/** Tried Skills **/}
-          <div className="skill_back">
+          <div className="skill_back" onClick={() => toggleSkill("Tried")}>
             <div className="skill_header"></div>
             <div className="sk_title">
               <h2>Tried</h2>
             </div>
             <hr style={{ width: "100%", color: "#8a8a8a" }} />
             <div className="skill_box">
-              <ul className="sk_detail">
+              <ul
+                className={`sk_detail ${activeSkill === "Tried" ? "show" : ""}`}
+              >
                 {[
                   { src: java, alt: "Java", name: "Java" },
-                  {
-                    src: mysql,
-                    alt: "MySQL",
-                    name: "MySQL",
-                  },
+                  { src: mysql, alt: "MySQL", name: "MySQL" },
                   { src: php, alt: "PHP", name: "PHP" },
                 ].map((skill, index) => (
                   <li key={index}>
@@ -94,30 +89,22 @@ const Skills: React.FC = () => {
           </div>
 
           {/** Language Skills **/}
-          <div className="skill_back">
+          <div className="skill_back" onClick={() => toggleSkill("Language")}>
             <div className="skill_header"></div>
             <div className="sk_title">
               <h2>Language</h2>
             </div>
             <hr style={{ width: "100%", color: "#8a8a8a" }} />
             <div className="skill_box">
-              <ul className="sk_detail">
+              <ul
+                className={`sk_detail ${
+                  activeSkill === "Language" ? "show" : ""
+                }`}
+              >
                 {[
-                  {
-                    src: js,
-                    alt: "JavaScript",
-                    name: "JavaScript",
-                  },
-                  {
-                    src: tsx,
-                    alt: "TypeScript",
-                    name: "TypeScript",
-                  },
-                  {
-                    src: python,
-                    alt: "Python",
-                    name: "Python",
-                  },
+                  { src: js, alt: "JavaScript", name: "JavaScript" },
+                  { src: tsx, alt: "TypeScript", name: "TypeScript" },
+                  { src: python, alt: "Python", name: "Python" },
                 ].map((skill, index) => (
                   <li key={index}>
                     <div className="logobox">

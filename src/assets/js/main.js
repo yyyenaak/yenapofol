@@ -1,31 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
-  const skillBacks = document.querySelectorAll(".skill_back");
-
-  // skill 모바일 여닫기(클릭 시 아래로 펼쳐지게)
-  skillBacks.forEach((skillBack) => {
-    skillBack.addEventListener("click", () => {
-      const detail = skillBack.querySelector(".sk_detail");
-      const isOpen = detail.classList.contains("show");
-
-      document.querySelectorAll(".sk_detail").forEach((d) => {
-        if (d !== detail) {
-          d.style.maxHeight = "0px";
-          d.classList.remove("show");
-        }
-      });
-
-      if (!isOpen) {
-        detail.classList.add("show");
-        detail.style.maxHeight = detail.scrollHeight + "px";
-      } else {
-        detail.style.maxHeight = "0px";
-        setTimeout(() => {
-          detail.classList.remove("show");
-        }, 300);
-      }
-    });
-  });
 
   // Project 스크롤 시 카드뷰 보이게
   const observer = new IntersectionObserver(
