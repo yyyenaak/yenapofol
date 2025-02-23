@@ -4,6 +4,7 @@ import "./assets/css/Modal.css";
 import topbtn from "./assets/top.svg";
 import Header from "./components/Header";
 import About from "./components/About";
+import Skills from "./components/Skills";
 import "./assets/js/main";
 
 const App: React.FC = () => {
@@ -59,7 +60,10 @@ const App: React.FC = () => {
         </section>
 
         <hr style={{ width: "90%", color: "#1F334B" }} />
+
         <About />
+
+        <Skills />
       </main>
 
       {/* Top 버튼 */}
