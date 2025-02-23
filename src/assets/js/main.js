@@ -1,24 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".card");
-
-  // Project 스크롤 시 카드뷰 보이게
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "50px 0px",
-    }
-  );
-
-  cards.forEach((card) => observer.observe(card));
-});
-
 // Modal 열기
 function openPopup(modalId) {
   let modal = document.getElementById(modalId);

@@ -108,6 +108,7 @@ ul {
 ul li {
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
+  margin: 0.2rem;
 }
 
 a {
@@ -762,7 +763,7 @@ main .underbtn:active:after {
 .projectzone .card-front {
   position: relative;
   width: 100%;
-  height: 450px;
+  height: 460px;
   border-radius: 10px;
   padding: 1.5rem;
   display: flex;
@@ -795,10 +796,9 @@ main .underbtn:active:after {
   overflow-wrap: break-word;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 .projectzone .card-front .project_summary .title {
-  margin-bottom: 0.5rem;
   font-size: 1.25rem;
   letter-spacing: 1px;
 }
@@ -807,6 +807,9 @@ main .underbtn:active:after {
   font-size: 0.875rem;
   font-family: "TheJamsil4Medium";
   letter-spacing: 1px;
+}
+.projectzone .card-front .project_summary .detail > ul {
+  margin-bottom: 0;
 }
 .projectzone .card-front .project_summary .detail > li {
   list-style: none;
@@ -858,7 +861,7 @@ main .underbtn:active:after {
   font-family: "TheJamsil2Light";
 }
 .projectzone .card-front .cardbtnzone {
-  margin-top: 1rem;
+  padding-top: 0.5rem;
   display: flex;
   justify-content: flex-end;
 }
