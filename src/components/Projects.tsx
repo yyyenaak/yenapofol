@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import project from "../assets/project.svg";
+import Modal from "./components/Modal";
 
 interface ProjectData {
   title: string;
@@ -8,6 +9,7 @@ interface ProjectData {
   details: string[];
   url: string;
   stack: string;
+  ModalId: string;
 }
 //데이터 구성 요소
 
@@ -31,6 +33,7 @@ const Projects = () => {
       ],
       url: "https://github.com/yyyenaak/yyyenaa-portfolio.git",
       stack: "React, HTML, CSS, SCSS, Tsx, JS",
+      ModalId: "popupModalyyyenaa",
     },
     {
       title: "Farmy",
@@ -45,6 +48,7 @@ const Projects = () => {
       url: "https://github.com/yyyenaak/Farmy_fin-ver..git",
       stack:
         "HTML, CSS, JS, Java, Android Studio, Arduino, LLM, Prompt Engineering, Ascii",
+      ModalId: "popupModalFarmy",
     },
     {
       title: "이순종, Design for Life",
@@ -58,6 +62,7 @@ const Projects = () => {
       ],
       url: "http://leesoonjong.com",
       stack: "기획: PM, Excel, Figma | 개발: HTML, CSS, JS, MySQL",
+      ModalId: "popupModalLSJ",
     },
     {
       title: "U:COMPANION GROUP",
@@ -71,6 +76,7 @@ const Projects = () => {
       ],
       url: "https://ucomp.co.kr/",
       stack: "HTML, CSS, JS, PHP",
+      ModalId: "popupModaldrop",
     },
     {
       title: "KALDA",
@@ -84,6 +90,7 @@ const Projects = () => {
       ],
       url: "https://Kalda.or.kr",
       stack: "HTML, CSS, JS",
+      ModalId: "popupModalkalda",
     },
     {
       title: "Crewdays Demo",
@@ -97,6 +104,7 @@ const Projects = () => {
       ],
       url: "https://github.com/yyyenaak/crewdays-demo",
       stack: "React, TSX, JS, SCSS",
+      ModalId: "popupModalcrewdays",
     },
   ];
   // 스크롤시 보이는 애니메이션
@@ -164,7 +172,7 @@ const Projects = () => {
                       <a
                         href={project.url}
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                       >
                         {project.url}
                       </a>
