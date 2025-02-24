@@ -164,7 +164,7 @@ const Projects = () => {
                       <a
                         href={project.url}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                       >
                         {project.url}
                       </a>
