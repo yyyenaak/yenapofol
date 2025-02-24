@@ -17,7 +17,7 @@ const Projects = () => {
     null
   );
 
-  // 프로젝트 정보보
+  // 프로젝트 정보
   const projectData: ProjectData[] = [
     {
       title: "Yena-Portfolio",
