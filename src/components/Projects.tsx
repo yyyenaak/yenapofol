@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import project from "../assets/project.svg";
-import Modal from "./components/Modal";
+import Modal from "../components/Modal";
 
 interface ProjectData {
   title: string;
@@ -195,7 +195,7 @@ const Projects = () => {
       </div>
 
       {/* Modal */}
-      {isModalOpen && selectedProject && (
+      {/* {isModalOpen && selectedProject && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>{selectedProject.title}</h2>
@@ -209,7 +209,7 @@ const Projects = () => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </section>
   );
 };
